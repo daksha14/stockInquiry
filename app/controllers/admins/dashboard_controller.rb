@@ -1,4 +1,5 @@
 class Admins::DashboardController < ApplicationController
+  require 'csv'
   layout 'admin'
   before_action :authenticate_admin!
 

@@ -1,0 +1,4 @@
+<li class="list-group-item <%= message.sender == current_admin ? 'right-align' : 'left-align' %>" >
+  <%= label_tag 'name', message.sender.email, class: 'sender-email' %>  
+  <%= message.body %>
+</li>

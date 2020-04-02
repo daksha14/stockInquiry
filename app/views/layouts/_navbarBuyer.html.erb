@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="text-white"><h2>Buyer Dashboard</h2></div>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+    <div class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto" >
+        <% if buyer_signed_in? %>
+          <li class="nav-item active dropdown" >
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_buyer.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Edit profile', edit_buyer_registration_path , class: "dropdown-item" %>
+              <%= link_to "Logout", destroy_buyer_session_path, method: :delete , class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item pr-3" >
+            <%= link_to "Sign up", new_buyer_registration_path , class: "btn btn-secondary" %>
+            <%= link_to "Login", new_buyer_session_path,class: "btn btn-secondary"%>
+          </li> 
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>

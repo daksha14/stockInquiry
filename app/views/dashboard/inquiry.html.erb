@@ -1,0 +1,25 @@
+<div class="row justify-content-center p-5">
+  <div class="col-sm-11">
+    <div class="card">
+      <div class="card-header bg-transparent ">
+        <h5>Inquiry for <%=@channel.paper.paper_name%> </h5>
+      </div>
+      <div class="card-body">
+      <ul class="list-group list-group-flush" id='jsMessages'>
+        <%= render partial: 'message', collection: @channel.messages, as: :message %>
+      </ul>
+      </div>
+      <div class="card-footer bg-transparent ">
+        <%= form_with(url: message_dashboard_index_path ,method: "post",remote: true, id: 'msg')  do |f| %>
+          <div class="field">
+            <%= f.text_area :message,class: "form-control", id: "textArea"%>
+          </div>
+          <div> <%= hidden_field_tag(:channel_id, @channel.id )%> </div><br/>
+          <div class="actions">
+            <%= f.submit "send",class: "btn btn-primary"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> 

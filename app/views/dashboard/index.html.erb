@@ -1,0 +1,21 @@
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">PaperName</th>
+      <th scope="col">Price</th>
+      <th colspan="2">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @papers.each do |paper| %>
+      <tr>
+        <td><%= paper.paper_name %></td>
+        <td><%= paper.price %></td>
+        <td><%= paper.quantity%></td>
+        <td><%= link_to 'Inquiry',inquiry_dashboard_index_path(paper_id: paper.id),class: "btn btn-primary"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @papers %>

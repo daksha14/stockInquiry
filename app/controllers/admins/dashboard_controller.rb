@@ -4,7 +4,7 @@ class Admins::DashboardController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @papers = Paper.order(:paper_id).page(params[:page])
+      @papers = Paper.order(:id).page(params[:page])
   end
 
   def inquiry

@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   before_action :authenticate_buyer!
 
   def index
-    @papers = Paper.order(:paper_id).page(params[:page])
+    @papers = Paper.order(:id).page(params[:page])
   end
 
   def inquiry

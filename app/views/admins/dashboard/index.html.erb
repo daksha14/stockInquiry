@@ -13,25 +13,29 @@
   </div>
 <% end %><br/>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">PaperName</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Pending Inquiry</th>
-    </tr>
-  </thead>
-  <tbody>
-   <% @papers.each do |paper| %>
+<% if @papers.present? %>
+  <table class="table">
+    <thead class="thead-light">
       <tr>
-        <td><%= paper.paper_name %></td>
-        <td><%= paper.price %></td>
-        <td><%= paper.quantity%></td>
-       <td><%= link_to 'View Inquiry',inquiry_admins_dashboard_index_path(paper_id: paper.id),class: "btn btn-primary" %></td>
+        <th scope="col">PaperName</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Pending Inquiry</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= paginate @papers %>
+    </thead>
+    <tbody>
+     <% @papers.each do |paper| %>
+        <tr>
+          <td><%= paper.paper_name %></td>
+          <td><%= paper.price %></td>
+          <td><%= paper.quantity%></td>
+         <td><%= link_to 'View Inquiry',inquiry_admins_dashboard_index_path(paper_id: paper.id),class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <%= paginate @papers %>
+<% else %>
+  No Data Uploaded.
+<% end %>

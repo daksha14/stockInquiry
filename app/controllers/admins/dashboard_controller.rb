@@ -18,6 +18,7 @@ class Admins::DashboardController < ApplicationController
 
   def message
     @message = current_admin.messages.create(body: params[:message],channel_id:  params[:channel_id])
+    AdminMailer.replay_to_inquiry_message_email(@message.id).deliver_later
   end
  
   def import_csv

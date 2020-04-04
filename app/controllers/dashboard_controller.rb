@@ -11,6 +11,8 @@ class DashboardController < ApplicationController
 
   def message
     @message = current_buyer.messages.create(body: params[:message],channel_id:  params[:channel_id])
+
+    BuyerMailer.inquiry_message_email(@message.id).deliver_later
     #redirect_to inquiry_dashboard_index_path(paper_id: @message.channel.paper.id)
   end
 end

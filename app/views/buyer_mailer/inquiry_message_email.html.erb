@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+     <p>Hello,</p><br/>
+    <h3>Inquiry For <%= @message.channel.paper.paper_name %></h3><br/>
+    <h3>Buyer Email : <%= @message.sender.email%> </h3><br/>
+    <h3>Inquiry Detail : <%= @message.body %></h3>
+  </body>
+</html>
